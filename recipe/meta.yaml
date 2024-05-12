@@ -1,5 +1,5 @@
 {% set name = "songdkl" %}
-{% set version = "0.3.0" %}
+{% set version = "0.4.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/songdkl-{{ version }}.tar.gz
-  sha256: 3123ba2e27aa898833cdf4a20672962369503acd334791f64adec25acb7dd7bb
+  sha256: c3465098251559aacf937ee9ed4ed53303bda82a0c033c2248c92c22b7a7285e
 
 build:
   noarch: python
