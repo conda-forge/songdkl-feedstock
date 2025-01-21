@@ -6,23 +6,23 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/songdkl-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/songdkl-{{ version }}.tar.gz
   sha256: 3123ba2e27aa898833cdf4a20672962369503acd334791f64adec25acb7dd7bb
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
   entry_points:
     - songdkl = songdkl.__main__:main
 
 requirements:
   host:
-    - python >=3.8
+    - python {{ python_min }}
     - pip
     - flit-core
   run:
-    - python >=3.8
+    - python >={{ python_min }}
     - dask-core >=2022.12.0
     - numpy >=1.19.4
     - scipy >=1.5.4
@@ -40,6 +40,7 @@ test:
     - songdkl --help
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://pypi.org/project/songdkl/
